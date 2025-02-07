@@ -1,0 +1,49 @@
+{% extends 'keyapp/base.html'%}
+
+{% load static  %}
+
+{% block content %}
+
+<h1>Claves</h1>
+
+<form action="">
+    <input type="text" name="busca_cla">
+    <button type="submit">
+        Search
+    </button>
+</form>
+
+<a class="btn btn-outline-primary btn-sm" href="{% url 'create-clave' %}">
+    Crear nueva clave
+</a>
+<br>
+<table>
+    <tr>
+    <th>Entidad</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Comentarios</th>
+    <th>Categoria</th>
+    <th>View</th>
+    </tr>
+{% for clave in claves %}
+    <tr>
+    <td>
+    <a href="{{clave.url}}" target="_blank">{{clave.entidad}} </a>    
+    </td><td>
+    {{clave.username}} 
+    </td><td>
+    {{clave.password}} 
+    </td><td>        
+    {{clave.remarks}} 
+    </td><td>
+    {{clave.fk_cat.categoria}}
+    </td>  
+    <td>
+        
+      <a href="{% url 'clave' clave.id %}"><img src="{% static 'images/ico-edit.gif' %}" alt=""></a>  
+    </td>
+    </tr>
+{% endfor%}
+</table>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'keyapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+        <strong>
+            {{contacto.name}}
+        </strong>
+        <div class="card-body">
+            <p><strong>Name: </strong>{{contacto.name}}</p>
+            <p><strong>Phone: </strong>{{contacto.phone}}</p>
+            <p><strong>Email: </strong>{{contacto.email}}</p>
+            <p><strong>Remarks: </strong>{{contacto.remarks}}</p>
+            <p><strong>Categoria: </strong>{{contacto.fk_cat}}</p>
+
+        </div>
+    </div>
+    <br>
+
+    <a href="{% url 'contactosH' %}" class="btn btn-secondary"> Regresar</a>
+    &nbsp;
+    <a href="{% url 'update-contacto' contacto.id %}" class="btn btn-info"> Actualizar</a>
+    &nbsp;
+    <a href="{% url 'delete-contacto' contacto.id %}" class="btn btn-danger"> Borrar</a>
+
+{% endblock content %}
+
+

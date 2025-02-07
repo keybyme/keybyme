@@ -1,0 +1,26 @@
+{% extends 'keyapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+        <strong>
+            {{link.entidad}}
+        </strong>
+        <div class="card-body">
+            <p><strong>Entidad: </strong>{{link.entidad}}</p>
+            <p><strong>URL: </strong>{{link.url}}</p>
+            <p><strong>Remarks: </strong>{{link.remarks}}</p>
+
+        </div>
+    </div>
+    <br>
+
+    <a href="{% url 'links' %}" class="btn btn-secondary"> Regresar</a>
+    &nbsp;
+    <a href="{% url 'update-link' link.id %}" class="btn btn-info"> Actualizar</a>
+    &nbsp;
+    <a href="{% url 'delete-link' link.id %}" class="btn btn-danger"> Borrar</a>
+
+{% endblock content %}
+
+

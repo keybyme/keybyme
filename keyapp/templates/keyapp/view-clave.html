@@ -1,0 +1,29 @@
+{% extends 'keyapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+        <strong>
+            {{clave.entidad}}
+        </strong>
+        <div class="card-body">
+            <p><strong>Entidad: </strong>{{clave.entidad}}</p>
+            <p><strong>URL: </strong>{{clave.url}}</p>
+            <p><strong>Username: </strong>{{clave.username}}</p>
+            <p><strong>Password: </strong>{{clave.password}}</p>
+            <p><strong>Remarks: </strong>{{clave.remarks}}</p>
+            <p><strong>Categoria: </strong>{{clave.fk_cat}}</p>
+
+        </div>
+    </div>
+    <br>
+
+    <a href="{% url 'claves' %}" class="btn btn-secondary"> Regresar</a>
+    &nbsp;
+    <a href="{% url 'update-clave' clave.id %}" class="btn btn-info"> Actualizar</a>
+    &nbsp;
+    <a href="{% url 'delete-clave' clave.id %}" class="btn btn-danger"> Borrar</a>
+
+{% endblock content %}
+
+

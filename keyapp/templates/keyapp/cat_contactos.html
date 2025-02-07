@@ -1,0 +1,31 @@
+{% extends 'keyapp/base.html'%}
+
+{% load static  %}
+
+{% block content %}
+
+<h1>Categorias de Contactos</h1>
+
+
+
+<a class="btn btn-outline-primary btn-sm" href="{% url 'create-cat_contacto' %}">
+    Crear Categoria de contacto
+</a>
+<br>
+<table>
+    <tr>
+    <th>Categoria</th>
+    <th>Delete</th>
+    </tr>
+{% for x in cat_contactos %}
+    <tr>
+    <td>
+    {{x.categoria}} 
+    </td>
+    <td>
+        <a href="{% url 'delete-cat_contacto' x.id %}"><img src="{% static 'images/ico-delete.gif' %}" alt=""></a>
+    </td>
+    </tr>
+{% endfor%}
+</table>
+{% endblock content %}

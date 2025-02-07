@@ -1,0 +1,49 @@
+{% extends 'keyapp/base.html'%}
+
+{% load static  %}
+
+{% block content %}
+
+<h1>Reminders</h1>
+
+<form action="">
+    <input type="text" name="busca_rem">
+    <button type="submit">
+        Search
+    </button>
+</form>
+
+<a class="btn btn-outline-primary btn-sm" href="{% url 'create-reminder' %}">
+    Crear nuevo reminder
+</a>
+<br>
+<table>
+    <tr>
+    <th>Recordatorio</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Comentarios</th>
+    <th>Freq</th>
+    <th>Freq_m_d</th>
+    </tr>
+{% for x in reminders %}
+    <tr>
+    <td>
+    {{x.rem_name}} 
+    </td><td>
+    {{x.date}}
+    </td><td>
+    {{x.time}}
+    </td><td>
+    {{x.remarks}} 
+    </td><td>
+    {{x.freq}}
+    </td>
+    <td>
+    {{x.freq_m_d}}
+    </td> 
+    </tr>
+{% endfor%}
+</table>
+{% endblock content %}
+

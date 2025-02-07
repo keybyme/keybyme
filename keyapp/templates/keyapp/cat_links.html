@@ -1,0 +1,31 @@
+{% extends 'keyapp/base.html'%}
+
+{% load static  %}
+
+{% block content %}
+
+<h1>Categorias de Links</h1>
+
+
+
+<a class="btn btn-outline-primary btn-sm" href="{% url 'create-cat_link' %}">
+    Crear Categoria de link
+</a>
+<br>
+<table>
+    <tr>
+    <th>Categoria</th>
+    <th>Delete</th>
+    </tr>
+{% for x in cat_links %}
+    <tr>
+    <td>
+    {{x.categoria}} 
+    </td>
+    <td>
+        <a href="{% url 'delete-cat_link' x.id %}"><img src="{% static 'images/ico-delete.gif' %}" alt=""></a>  
+    </td>
+    </tr>
+{% endfor%}
+</table>
+{% endblock content %}
