@@ -205,7 +205,7 @@ def create_contacto(request):
                   f=form.save(commit=False)
                   f.user=request.user
                   f.save()
-                  return redirect("contactosH")
+                  return redirect("contactos")
                   
       context = {'form': form}      
       return render(request, 'keyapp/create-contacto.html', context=context)  
@@ -331,7 +331,7 @@ def delete_contacto(request, pk):
       
       contacto.delete()
       
-      return redirect("contactosH")
+      return redirect("contactos")
 
 
 ########################  Delete a clave
