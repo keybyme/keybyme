@@ -13,7 +13,7 @@ urlpatterns = [
     
     path('dashboard', views.dashboard, name="dashboard"),
     
-    path('mycontactos', views.contactosv, name="contactos"),
+    path('mycontactos', views.contactosv, name="contactosH"),
     
     path('myreminders', views.remindersv, name="remindersH"),
     
