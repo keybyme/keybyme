@@ -30,6 +30,16 @@
 
   
           {% if user.is_authenticated %}
+
+          {% if user.id  == 2 %}
+
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'codigosH' %}">Records &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
+          </li>
+          &nbsp;     &nbsp;     &nbsp; 
+
+          {% else %}
       
             <li class="nav-item">
               <a class="nav-link" href="{% url 'dashboard' %}">Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
@@ -81,15 +91,12 @@
             </li>
             &nbsp;     &nbsp;     &nbsp; 
 
+            {% endif %}
+
             <li class="nav-item">
   
               <a class="nav-link" href="{% url 'qrcodex' %}">QRcode &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
   
-            </li>
-            &nbsp;     &nbsp;     &nbsp; 
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'codigosH' %}">Records &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
             </li>
             &nbsp;     &nbsp;     &nbsp; 
 
