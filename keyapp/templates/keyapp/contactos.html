@@ -40,7 +40,7 @@
     {{x.fk_cat.categoria}}
     </td>
     <td>
-        <a href="{% url 'contacto' x.id %}"><img src="{% static 'images/ico-edit.gif' %}" alt=""></a>  
+        <a href="{% url 'contacto-singular' x.id %}"><img src="{% static 'images/ico-edit.gif' %}" alt=""></a>  
     </td>
     </tr>
 {% endfor%}

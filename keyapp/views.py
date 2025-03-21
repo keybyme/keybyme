@@ -351,7 +351,7 @@ def delete_clave(request, pk):
 @login_required(login_url='my-login')
 def cat_claves(request):
       
-      my_cat = Cat_clave.objects.all()
+      my_cat = Cat_clave.objects.filter(user=request.user)
       context = {'cat_claves': my_cat}
       return render(request, 'keyapp/cat_claves.html', context=context)
 
@@ -361,7 +361,7 @@ def cat_claves(request):
 @login_required(login_url='my-login')
 def cat_contactos(request):
       
-      my_cat = Cat_contacto.objects.all()
+      my_cat = Cat_contacto.objects.filter(user=request.user)
       context = {'cat_contactos': my_cat}
       return render(request, 'keyapp/cat_contactos.html', context=context)
 
@@ -371,7 +371,8 @@ def cat_contactos(request):
 @login_required(login_url='my-login')
 def cat_links(request):
       
-      my_cat = Cat_link.objects.all()
+      #my_cat = Cat_link.objects.all() 
+      my_cat = Cat_link.objects.filter(user=request.user) 
       context = {'cat_links': my_cat}
       return render(request, 'keyapp/cat_links.html', context=context)
 

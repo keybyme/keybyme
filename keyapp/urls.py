@@ -35,7 +35,7 @@ urlpatterns = [
     
     path('link/<int:pk>', views.singular_link, name="link"),
     
-    path('contacto/<int:pk>', views.singular_contacto, name="contacto"),
+    path('contacto/<int:pk>', views.singular_contacto, name="contacto-singular"),
     
     path('clave/<int:pk>', views.singular_clave, name="clave"),
     
