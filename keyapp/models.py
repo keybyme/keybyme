@@ -106,3 +106,24 @@ class Reminder(models.Model):
         db_table="reminder"
     def __str__(self):
         return f"{self.rem_name} | {self.date} | {self.time} | {self.remarks} | {self.freq} | {self.freq_m_d} | {self.comentarios}"      
+
+######################## --- Codigos 
+
+class Codigo(models.Model):
+    name = models.CharField(max_length=100)
+    dob = models.CharField(max_length=15, blank=True)
+    height = models.CharField(max_length=15, blank=True)
+    weight = models.CharField(max_length=15, blank=True)
+    allergic = models.CharField(max_length=200, blank=True)
+    emergency = models.CharField(max_length=200, blank=True)
+    phone = models.CharField(max_length=15, blank=True)
+    certification = models.CharField(max_length=250, blank=True)
+    remarks = models.CharField(max_length=250, blank=True)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    
+    class Meta:
+        db_table="codigo"
+    def __str__(self):
+        return f"{self.name} | {self.dob} | {self.height} | {self.weight} | {self.allergic} | {self.emergency} | {self.phone} | {self.certification} | {self.remarks}"
+    
+    
