@@ -1,23 +1,46 @@
 
+{% load static%}
 
-    <div class="card">
-        <strong>
-            {{codigo.name}}
-        </strong>
-        <div class="card-body">
-            <p><strong>Name: </strong>{{codigo.name}}</p>
-            <p><strong>D.O.B.: </strong>{{codigo.dob}}</p>
-            <p><strong>Height: </strong>{{codigo.height}}</p>
-            <p><strong>Weight: </strong>{{codigo.weight}}</p>
-            <p><strong>Allergic Reactions: </strong>{{codigo.allergic}}</p>
-            <p><strong>Emergency Contact: </strong>{{codigo.emergency}}</p>
-            <p><strong>Cell: </strong>{{codigo.phone}}</p>
-            <p><strong>Certification: </strong>{{codigo.certification}}</p>
-            <p><strong>Remarks: </strong>{{codigo.remarks}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyByMe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!--  Create Navbar here-->
+    
+    {% include 'keyapp/navbar.html' %}
+    
+    
+    <div class="container">
+        <br>
+        <!-- Notification messages -->
+        <div class="card">
+            <strong>
+                {{codigo.name}}
+            </strong>
+            <div class="card-body">
+                <p><strong>Name: </strong>{{codigo.name}}</p>
+                <p><strong>D.O.B.: </strong>{{codigo.dob}}</p>
+                <p><strong>Height: </strong>{{codigo.height}}</p>
+                <p><strong>Weight: </strong>{{codigo.weight}}</p>
+                <p><strong>Allergic Reactions: </strong>{{codigo.allergic}}</p>
+                <p><strong>Emergency Contact: </strong>{{codigo.emergency}}</p>
+                <p><strong>Cell: </strong>{{codigo.phone}}</p>
+                <p><strong>Certification: </strong>{{codigo.certification}}</p>
+                <p><strong>Remarks: </strong>{{codigo.remarks}}</p>
+            </div>
         </div>
+        <br>
+        
     </div>
-    <br>
-
-
-
-
+    
+    <scripts src="{% static 'js/app.js' %}"></scripts>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script></body>
+</html>
