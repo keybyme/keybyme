@@ -1,0 +1,26 @@
+{% extends 'keyapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+        <strong>
+            {{codigo.name}}
+        </strong>
+        <div class="card-body">
+            <p><strong>Name: </strong>{{codigo.name}}</p>
+            <p><strong>D.O.B.: </strong>{{codigo.dob}}</p>
+            <p><strong>Height: </strong>{{codigo.height}}</p>
+            <p><strong>Weight: </strong>{{codigo.weight}}</p>
+            <p><strong>Allergic Reactions: </strong>{{codigo.allergic}}</p>
+            <p><strong>Emergency Contact: </strong>{{codigo.emergency}}</p>
+            <p><strong>Cell: </strong>{{codigo.phone}}</p>
+            <p><strong>Certification: </strong>{{codigo.certification}}</p>
+            <p><strong>Remarks: </strong>{{codigo.remarks}}</p>
+        </div>
+    </div>
+    <br>
+
+
+
+{% endblock content %}
+

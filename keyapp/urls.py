@@ -43,6 +43,8 @@ urlpatterns = [
     
     path('codigo/<int:pk>', views.singular_codigo, name="codigo-singular"),
     
+    path('qr/<int:pk>', views.singular_qr, name="codigo-qr"),
+    
     path('clave/<int:pk>', views.singular_clave, name="clave"),
     
     path('delete-link/<int:pk>', views.delete_link, name="delete-link"),

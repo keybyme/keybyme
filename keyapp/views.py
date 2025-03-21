@@ -540,4 +540,14 @@ def delete_codigo(request, pk):
       
       return redirect("codigosH")
 
+
+########################  singular codigo para QR
+
+def singular_qr(request, pk):
+      
+      all_codigos = Codigo.objects.get(id=pk)
+      context = {'codigo':all_codigos}
+      return render(request, 'keyapp/view-qr.html', context=context)
+
+
       
