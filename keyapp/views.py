@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm, LoginForm, CreateLinkForm, UpdateLinkForm, CreateClaveForm, CreateContactoForm, UpdateContactoForm, UpdateClaveForm, CreateCat_claveForm, CreateCat_contactoForm, CreateCat_linkForm, CreateReminderForm
+from .forms import CreateUserForm, LoginForm, CreateLinkForm, UpdateLinkForm, CreateClaveForm, CreateContactoForm, UpdateContactoForm, UpdateClaveForm, CreateCat_claveForm, CreateCat_contactoForm, CreateCat_linkForm, CreateReminderForm, CreateCodigoForm, UpdateCodigoForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
-from .models import Cat_clave, Cat_link, Contacto, Clave, Link, Cat_contacto, Reminder
+from .models import Cat_clave, Cat_link, Contacto, Clave, Link, Cat_contacto, Reminder, Codigo
 from django.db.models import Q
 from .forms import QrcodeForm2
 import io
@@ -466,3 +466,78 @@ def apagar(request):
             sys.exit()
             
             return HttpResponse("apagando")
+      
+      
+########################   Codigos
+
+@login_required(login_url='my-login')
+def codigosv(request):
+      busca_cod=request.GET.get("busca_cod")
+                  
+      my_codigos = Codigo.objects.filter(user=request.user)
+      context = {'codigos': my_codigos}
+      if busca_cod:
+            cod=Codigo.objects.filter(Q(name__icontains=busca_cod) | Q(remarks__icontains=busca_cod))
+            my_codigos = Codigo.objects.filter(user=request.user)
+            context = {'codigos': cod}
+            return render(request, 'keyapp/codigos.html', context=context)
+      return render(request, 'keyapp/codigos.html', context=context)      
+
+
+########################  Create a codigo
+               
+@login_required(login_url='my-login')
+def create_codigo(request):        
+      
+      form = CreateCodigoForm()
+      if request.method == "POST":
+            form = CreateCodigoForm(request.POST)
+            if form.is_valid():
+                  f=form.save(commit=False)
+                  f.user=request.user
+                  f.save()
+                  return redirect("codigosH")
+                  
+      context = {'form': form}      
+      return render(request, 'keyapp/create-codigo.html', context=context)  
+
+
+########################  Update a codigo
+               
+@login_required(login_url='my-login')   
+def update_codigo(request, pk):
+      
+      codigo = Codigo.objects.get(id=pk)
+      form = UpdateCodigoForm(instance=codigo)
+      if request.method == "POST":
+            form = UpdateCodigoForm(request.POST, instance=codigo)
+            if form.is_valid():
+                  form.save()
+                  return redirect("codigosH")
+                   
+      context = {'form': form}      
+      return render(request, 'keyapp/update-codigo.html', context=context)    
+
+
+########################  Read ot View a singular codigo
+
+@login_required(login_url='my-login')   
+def singular_codigo(request, pk):
+      
+      all_codigos = Codigo.objects.get(id=pk)
+      context = {'codigo':all_codigos}
+      return render(request, 'keyapp/view-codigo.html', context=context)
+
+
+########################  Delete a codigo
+               
+@login_required(login_url='my-login')   
+def delete_codigo(request, pk):
+      
+      codigo = Codigo.objects.get(id=pk)
+      
+      codigo.delete()
+      
+      return redirect("codigosH")
+
+      

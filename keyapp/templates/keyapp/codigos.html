@@ -1,0 +1,61 @@
+{% extends 'keyapp/base.html'%}
+
+{% load static  %}
+
+{% block content %}
+
+<h1>Records</h1>
+
+<form action="">
+    <input type="text" name="busca_cod">
+    <button type="submit">
+        Search
+    </button>
+</form>
+
+<a class="btn btn-outline-primary btn-sm" href="{% url 'create-codigo' %}">
+    Create new record
+</a>
+<br>
+<table>
+    <tr>
+    <th>Name</th>
+    <th>D.O.B.</th>
+    <th>Height</th>
+    <th>Weight</th>
+    <th>Allergic Reactions</th>
+    <th>Emergency Contact</th>
+    <th>Cell</th>
+    <th>Certification</th>
+    <th>Remarks</th>
+    </tr>
+ 
+{% for x in codigos %}
+    <tr>
+    <td>
+    {{x.name}} 
+    </td><td>
+    {{x.dob}} 
+    </td><td>
+    {{x.height}} 
+    </td><td>    
+    {{x.weight}} 
+    </td><td>    
+    {{x.allergic}} 
+    </td><td>
+    {{x.emergency}} 
+    </td><td>         
+    <a href="tel:{{x.phone}} ">{{x.phone}}</a>
+    </td><td>
+    {{x.certification}} 
+    </td><td>
+    {{x.remarks}} 
+    </td>
+    <td>
+        <a href="{% url 'codigo-singular' x.id %}"><img src="{% static 'images/ico-edit.gif' %}" alt=""></a>  
+    </td>
+    </tr>
+{% endfor%}
+</table>
+{% endblock content %}
+

@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from .models import Link, Clave, Contacto, Cat_clave, Cat_contacto, Cat_link, Qrcode, Reminder
+from .models import Link, Clave, Contacto, Cat_clave, Cat_contacto, Cat_link, Qrcode, Reminder, Codigo
 from django import forms
 
 from django.contrib.auth.forms import AuthenticationForm
@@ -188,4 +188,48 @@ class QrcodeForm(forms.ModelForm):
         }            
 
 class QrcodeForm2(forms.Form):
-    link = forms.URLField(label='Link')                
+    link = forms.URLField(label='Link')     
+    
+    
+######################## Create record codigo
+
+class CreateCodigoForm(forms.ModelForm):
+    
+    class Meta:
+        
+        model = Codigo
+        fields = ['name', 'dob', 'height', 'weight', 'allergic', 'emergency', 'phone', 'certification', 'remarks']       
+        
+        labels = {
+            'name': 'Name',
+            'dob': 'D.O.B.',
+            'height': 'Height',
+            'weight': 'Weight',
+            'allergic': 'Allergic Reactions',
+            'emergency': 'Emergency Contact',
+            'phone': 'Cell',
+            'certification': 'Certification',
+            'remarks': 'Comentarios'
+        } 
+                        
+######################## Update record codigo
+
+class UpdateCodigoForm(forms.ModelForm):
+    
+    class Meta:
+        
+        model = Codigo
+        fields = ['name', 'dob', 'height', 'weight', 'allergic', 'emergency', 'phone', 'certification', 'remarks']    
+        labels = {
+            'name': 'Name',
+            'dob': 'D.O.B.',
+            'height': 'Height',
+            'weight': 'Weight',
+            'allergic': 'Allergic Reactions',
+            'emergency': 'Emergency Contact',
+            'phone': 'Cell',
+            'certification': 'Certification',
+            'remarks': 'Remarks'
+        }  
+        
+                          

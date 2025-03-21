@@ -27,21 +27,29 @@ urlpatterns = [
     
     path('create-contacto', views.create_contacto, name="create-contacto"),
     
+    path('create-codigo', views.create_codigo, name="create-codigo"),
+    
     path('create-reminder', views.create_reminder, name="create-reminder"),
     
     path('update-link/<int:pk>', views.update_link, name="update-link"),
     
     path('update-contacto/<int:pk>', views.update_contacto, name="update-contacto"),
     
+    path('update-codigo/<int:pk>', views.update_codigo, name="update-codigo"),
+    
     path('link/<int:pk>', views.singular_link, name="link"),
     
     path('contacto/<int:pk>', views.singular_contacto, name="contacto-singular"),
+    
+    path('codigo/<int:pk>', views.singular_codigo, name="codigo-singular"),
     
     path('clave/<int:pk>', views.singular_clave, name="clave"),
     
     path('delete-link/<int:pk>', views.delete_link, name="delete-link"),
     
     path('delete-contacto/<int:pk>', views.delete_contacto, name="delete-contacto"),
+    
+    path('delete-codigo/<int:pk>', views.delete_codigo, name="delete-codigo"),
     
     path('update-clave/<int:pk>', views.update_clave, name="update-clave"),
     
@@ -68,4 +76,6 @@ urlpatterns = [
     path('qrcode/', views.generate_qr_code, name="qrcodex"), 
     
     path('apagar', views.apagar, name='apagar'),
+    
+    path('mycodigos', views.codigosv, name="codigosH"),
 ]
