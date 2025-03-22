@@ -19,6 +19,7 @@
 <br>
 <table>
     <tr>
+    <th>ID</th>    
     <th>Name</th>
     <th>D.O.B.</th>
     <th>Height</th>
@@ -34,6 +35,8 @@
 {% for x in codigos %}
     <tr>
     <td>
+    {{x.id}} 
+    </td><td>    
     {{x.name}} 
     </td><td>
     {{x.dob}} 
