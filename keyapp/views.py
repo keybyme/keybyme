@@ -13,7 +13,6 @@ import base64
 from io import BytesIO
 from PIL import Image
 
-
 ########################  QRcode
 
 def generate_qr_code(request):
@@ -84,6 +83,7 @@ def my_login(request):
 
 @login_required(login_url='my-login')
 def dashboard(request):
+     
       return render(request, 'keyapp/dashboard.html')
 
 ########################   Contactos
@@ -106,6 +106,26 @@ def contactosv(request):
 
 @login_required(login_url='my-login')
 def remindersv(request):
+      
+      busca_rem=request.GET.get("busca_rem")
+                  
+      my_reminders = Reminder.objects.filter(user=request.user).order_by('rem_name')
+      context = {'reminders': my_reminders}
+      if busca_rem:
+            con=Reminder.objects.filter(Q(rem_name__icontains=busca_rem) | Q(remarks__icontains=busca_rem))
+            my_reminders = Reminder.objects.filter(user=request.user)
+            context = {'reminders': con}
+            return render(request, 'keyapp/reminders.html', context=context)
+      return render(request, 'keyapp/reminders.html', context=context)
+
+########################   Reminders
+
+@login_required(login_url='my-login')
+def remindersv(request):
+      
+      today = date.today()
+      print("Today date is: ", today)
+      
       busca_rem=request.GET.get("busca_rem")
                   
       my_reminders = Reminder.objects.filter(user=request.user).order_by('rem_name')
