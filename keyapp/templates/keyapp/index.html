@@ -1,5 +1,7 @@
 {% extends 'keyapp/base.html' %}
 
+{% load static  %}
+
 {% block content %}
 
     <body>
@@ -8,11 +10,13 @@
         <br>
 
         <div class="text-center">
-            <h3> Project in Construction</h3>
+            <h3><p style="color:blue;">KeyByMe.com</p></h3>
             <br>
             {% comment %} <h5>Keep track of your records effectively!</h5> {% endcomment %}
-            <br>
-            <br>    
+            <a href="#"><img src="{% static 'images/1a.jpg' %}" alt="" width="380"></a>
+            <br> <br>  
+            <p style="font-size:160%;">Custom Software - Hardware Maintenance - Apps Classes</p>
+             
             {% comment %} <a class="btn btn-primary" type="button" href="{% url 'register' %}"> Create your account </a> {% endcomment %}
         </div>
     </body>
